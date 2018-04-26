@@ -8,6 +8,9 @@ const resolutions = require("./routes/resolutions");
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send("hello")
+})
 app.use("/resolutions", resolutions);
 
 // catch 404 and forward to error handler
