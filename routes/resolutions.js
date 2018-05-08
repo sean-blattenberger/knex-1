@@ -21,7 +21,7 @@ router.get("/:id", (request, response, next) => {
 
 router.post("/", (request, response, next) => {
     queries.create(request.body).then(resolution => {
-        response.status(201).json({resolution: resolution});
+        response.status(201).json({resolution: resolution[0]});
     }).catch(next);
 });
 

@@ -6,6 +6,9 @@ const app = express();
 const resolutions = require("./routes/resolutions");
 
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {

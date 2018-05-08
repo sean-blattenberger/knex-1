@@ -18,9 +18,12 @@ const resolutionsSeed = [
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('resolutions').del()
-    .then(function () {
+  return knex
+    .raw(
+      'DELETE FROM "resolutions"; ALTER SEQUENCE resolutions_id_seq RESTART WITH 4;'
+    )
+    .then(function() {
       // Inserts seed entries
-      return knex('resolutions').insert(resolutionsSeed);
+      return knex("resolutions").insert(resolutionsSeed);
     });
 };
